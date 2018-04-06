@@ -1,8 +1,45 @@
-<div *ngIf="message">
-  <label>{{message}}</label>
-</div>
-<div>
-  <div><label>ID :</label><input type="text" [(ngModel)]="data.id"></div>
-  <div><label>Password :</label><input type="password" [(ngModel)]="data.pwd"></div>
-  <button (click)="login()">login</button>
-</div>
+<app-modal #modal></app-modal>
+
+
+<div class="wrapper">
+    <div class="container">
+      <h1>Paydebt</h1>
+      <div *ngIf="stage=='login'" class="form">
+        <input type="text" placeholder="Username" [(ngModel)]="data.id" >
+        <input type="password" placeholder="Password" [(ngModel)]="data.pwd" >
+        <button id="login-button" (click)="login()">Login</button>
+        <p class=" text--center ">Not a member?
+          <a (click)="sendMeRegister()">Sign up now</a>
+        </p>
+      </div>
+
+      <div *ngIf="stage=='regis'" class="form">
+        <div><input type="text" placeholder="Username" [(ngModel)]="data.id"></div>
+        <div><input type="Password" placeholder="Password" [(ngModel)]="data.pwd"></div>
+        <div><input type="Password" placeholder="Re - Password" (focusout)="validatePassword()" [(ngModel)]="rePwd"></div>
+        <div><input type="text" placeholder="Name" [(ngModel)]="data.firstName"></div>
+        <div><input type="text" placeholder="LastName" [(ngModel)]="data.lastName"></div>
+        <div><input type="email" placeholder="Email" [(ngModel)]="data.email"></div>
+        <div><input type="text" placeholder="Tell" [(ngModel)]="data.tell"></div>
+        <div><button (click)="register()" >Register</button></div>
+        <div><button class="clear" (click)="clear()" >Clear</button></div>
+        <p class=" text--center ">Have a member?
+          <a (click)="sendMeLogin()">login</a>
+        </p>
+      </div>
+
+    </div>
+    
+    <ul class="bg-bubbles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>

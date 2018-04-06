@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../service/login.service';
+import { UtilComponent } from '../util/util.component';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -21,7 +23,10 @@ export class RegisterComponent implements OnInit {
      message:'',
   }
 
-  constructor(private loginService:LoginService) { }
+  constructor(private loginService:LoginService,
+    private commonUtil:UtilComponent,
+    private router: Router,
+    private route: ActivatedRoute,) { }
 
   ngOnInit() {
   }
@@ -54,6 +59,11 @@ export class RegisterComponent implements OnInit {
     this.data.email='';
     this.data.tell='';
   }
+
+  sendMeLogin(){
+    this.router.navigate(['login']);
+  }
+
 }
 
 interface resultJson{

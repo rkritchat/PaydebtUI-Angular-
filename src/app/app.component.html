@@ -1,17 +1,4 @@
-<table cellpadding="60">
-    <tr>
-      <td><label (click)="setPage('login')" >Login</label></td>
-      <td><label (click)="setPage('register')">Register</label></td>
-      <td><label (click)="setPage('payment')">Payment</label></td>
-    </tr>
-</table>
 
-<ng-template [ngIf]="page == 'login'">
-  <app-login></app-login>
-</ng-template>
-<ng-template [ngIf]="page == 'register'">
-  <app-register></app-register>
-</ng-template>
-<ng-template [ngIf]="page == 'payment'">
-  <app-payment></app-payment>
-</ng-template>
+<router-outlet>
+    <div *ngIf="commonUtil.isloading" class="loading">Loading&#8230;</div>
+</router-outlet>
