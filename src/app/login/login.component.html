@@ -1,0 +1,8 @@
+<div *ngIf="message">
+  <label>{{message}}</label>
+</div>
+<div>
+  <div><label>ID :</label><input type="text" [(ngModel)]="data.id"></div>
+  <div><label>Password :</label><input type="password" [(ngModel)]="data.pwd"></div>
+  <button (click)="login()">login</button>
+</div>
